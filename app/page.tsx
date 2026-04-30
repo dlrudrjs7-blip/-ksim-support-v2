@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 const SUPPORT_LINKS = {
   liveChat: "#",
-  whatsapp: "https://wa.me/820000000000",
+  whatsapp: "https://whatsapp.com/channel/0029VbCDmwv1t90lofOvMM2J",
   wechat: "#",
   kakao: "#",
 };
