@@ -23,11 +23,6 @@ const FOOTER_INFO = {
 
 const PWA_CONFIG = { enabled: false };
 
-// ============================================================
-// 한국 필수 앱 목록
-// icon: public/images/apps/ 폴더에 이미지 파일을 넣으면 표시됩니다.
-// appStoreUrl / googlePlayUrl: 실제 링크로 교체하세요.
-// ============================================================
 const mustHaveApps = [
   {
     name: "Naver Map / Kakao Map",
@@ -117,7 +112,7 @@ const C = {
     contact:{
       title:"Contact Support",
       prepare:"Before contacting support, please prepare your phone model, SIM number, purchase location, and screenshot.",
-      channels:{ liveChat:"Live Chat", whatsapp:"WhatsApp", wechat:"WeChat", kakao:"KakaoTalk" },
+      channels:{ whatsapp:"WhatsApp" },
       form:{ title:"Submit a Support Request", name:"Name", phoneModel:"Phone Model", simNumber:"SIM Number / ICCID", purchaseLoc:"Purchase Location", issueType:"Issue Type", issueOptions:["SIM Not Detected","No Signal","Data Not Working","eSIM Not Activated","Refund / Exchange","Other"], screenshot:"Upload Screenshot", message:"Message", submit:"Submit Support Request", success:"Thank you. Our support team will contact you soon." },
     },
     channel:{
@@ -176,7 +171,7 @@ const C = {
     contact:{
       title:"联系客服",
       prepare:"联系客服前，请准备手机型号、SIM卡号码、购买地点和手机截图。",
-      channels:{ liveChat:"在线客服", whatsapp:"WhatsApp", wechat:"微信", kakao:"KakaoTalk" },
+      channels:{ whatsapp:"WhatsApp" },
       form:{ title:"提交支持请求", name:"姓名", phoneModel:"手机型号", simNumber:"SIM卡号码 / ICCID", purchaseLoc:"购买地点", issueType:"问题类型", issueOptions:["SIM卡未被检测","无信号","数据无法使用","eSIM未激活","退款 / 换货","其他"], screenshot:"上传截图", message:"留言", submit:"提交支持请求", success:"感谢您的联系。我们的支持团队将尽快与您联系。" },
     },
     channel:{
@@ -235,7 +230,7 @@ const C = {
     contact:{
       title:"고객센터 연결",
       prepare:"문의 전 휴대폰 기종, 유심번호, 구매 장소, 화면 캡처를 준비해주세요.",
-      channels:{ liveChat:"라이브 채팅", whatsapp:"WhatsApp", wechat:"WeChat", kakao:"카카오톡" },
+      channels:{ whatsapp:"WhatsApp" },
       form:{ title:"문의 접수", name:"이름", phoneModel:"휴대폰 기종", simNumber:"유심 번호 / ICCID", purchaseLoc:"구매 장소", issueType:"문의 유형", issueOptions:["유심 인식 안 됨","신호 없음","데이터 안 됨","eSIM 개통 실패","환불 / 교체","기타"], screenshot:"화면 캡처 첨부", message:"문의 내용", submit:"문의 접수하기", success:"문의가 접수되었습니다. 담당자가 곧 연락드릴 예정입니다." },
     },
     channel:{
@@ -283,18 +278,17 @@ const SvgDown = ({cls}: {cls: string}) => <svg className={cls} fill="none" strok
 const SvgUp = ({cls}: {cls: string}) => <svg className={cls} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 const SvgHeadset = ({cls}: {cls: string}) => <svg className={cls} fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z"/></svg>;
 const SvgWa = ({cls}: {cls: string}) => <svg className={cls} viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>;
-const SvgChat = ({cls}: {cls: string}) => <svg className={cls} fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>;
 
-function Card({children, cls}) {
+function Card({children, cls}: {children: any, cls?: string}) {
   return <div className={"bg-white rounded-2xl shadow-sm border border-gray-100 p-5 " + (cls||"")}>{children}</div>;
 }
-function CautionBox({text}) {
+function CautionBox({text}: {text: string}) {
   return <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-3"><p className="text-amber-800 text-sm leading-relaxed">{text}</p></div>;
 }
-function InfoBox({text}) {
+function InfoBox({text}: {text: string}) {
   return <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 mb-4"><p className="text-blue-700 text-xs leading-relaxed">{text}</p></div>;
 }
-function SecHeader({title, onBack}) {
+function SecHeader({title, onBack}: {title: string, onBack: () => void}) {
   return (
     <div className="flex items-center gap-3 mb-5">
       <button onClick={onBack} className="p-2 rounded-xl bg-gray-100 min-w-11 min-h-11 flex items-center justify-center">
@@ -304,7 +298,7 @@ function SecHeader({title, onBack}) {
     </div>
   );
 }
-function StepList({steps}) {
+function StepList({steps}: {steps: string[]}) {
   return (
     <ol className="space-y-4 mt-2">
       {steps.map(function(s,i) {
@@ -318,7 +312,7 @@ function StepList({steps}) {
     </ol>
   );
 }
-function TravelCard({plan, labels, onContact}) {
+function TravelCard({plan, labels, onContact}: {plan: any, labels: any, onContact: () => void}) {
   var isUnl = plan.data === "Unlimited";
   var isTBD = plan.price === "TBD";
   return (
@@ -359,85 +353,8 @@ function TravelCard({plan, labels, onContact}) {
     </div>
   );
 }
-function ArrivalGuide({arrival}) {
-  var openState = useState(false);
-  var open = openState[0];
-  var setOpen = openState[1];
-  return (
-    <div className="mt-4 border border-gray-200 rounded-2xl overflow-hidden">
-      <button onClick={function() { setOpen(function(o) { return !o; }); }} className="w-full flex items-center justify-between px-4 py-4 bg-gray-50 hover:bg-gray-100 transition-colors min-h-14">
-        <span className="font-bold text-gray-800 text-sm">{"✈️ " + arrival.title}</span>
-        {open ? <SvgUp cls="w-5 h-5 text-gray-500"/> : <SvgDown cls="w-5 h-5 text-gray-500"/>}
-      </button>
-      {open && (
-        <div className="p-4 space-y-4">
-          {arrival.cards.map(function(card, i) {
-            return (
-              <div key={i} className="bg-gray-50 rounded-xl p-4">
-                <p className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                  <span className="text-lg">{card.icon}</span>{card.title}
-                </p>
-                {card.body && <p className="text-sm text-gray-600 whitespace-pre-line mb-2">{card.body}</p>}
-                {card.sub && (
-                  <div className="space-y-2 mt-2">
-                    {card.sub.map(function(s,j) {
-                      return (
-                        <div key={j} className="bg-white rounded-lg p-3 border border-gray-100">
-                          <p className="text-xs font-bold text-blue-600 mb-1">{s.label}</p>
-                          <ul className="space-y-0.5">
-                            {s.items.map(function(item,k) {
-                              return <li key={k} className="text-xs text-gray-600 flex gap-1.5"><span className="text-gray-300">{"•"}</span>{item}</li>;
-                            })}
-                          </ul>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-                {card.taxiApps && (
-                  <div className="space-y-2 mt-2">
-                    {card.taxiApps.map(function(app,j) {
-                      return (
-                        <div key={j} className="bg-white rounded-lg p-3 border border-gray-100">
-                          <p className="text-xs font-bold text-gray-800 mb-1">{app.name}</p>
-                          <p className="text-xs text-gray-600 whitespace-pre-line">{app.desc}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-                {card.apps && (
-                  <div className="space-y-2 mt-2">
-                    {card.apps.map(function(app,j) {
-                      return (
-                        <div key={j} className="bg-white rounded-lg px-3 py-2.5 border border-gray-100 flex items-start gap-3">
-                          <span className="text-base mt-0.5">{"📲"}</span>
-                          <div>
-                            <p className="text-sm font-bold text-gray-800 leading-tight">{app.name}</p>
-                            <p className="text-xs text-gray-400 mt-0.5">{app.desc}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-                {card.list && (
-                  <ul className="mt-2 space-y-1">
-                    {card.list.map(function(item,k) {
-                      return <li key={k} className="text-sm text-gray-600 flex gap-2"><span className="text-blue-400 mt-0.5">{"•"}</span>{item}</li>;
-                    })}
-                  </ul>
-                )}
-                {card.tip && <p className="mt-2 text-xs text-teal-700 bg-teal-50 border border-teal-100 rounded-lg px-3 py-2">{"💡 " + card.tip}</p>}
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
-function ChannelButtons({t}) {
+
+function ChannelButtons({t}: {t: any}) {
   return (
     <div className="space-y-3">
       <a href={CHANNEL_LINKS.whatsappChannel} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2.5 w-full py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-bold text-sm active:scale-95 transition-all min-h-12"><SvgWa cls="w-5 h-5"/>{t.channel.buttons.whatsapp}</a>
@@ -448,7 +365,7 @@ function ChannelButtons({t}) {
 }
 
 export default function KSIMSupport() {
-  var langState = useState(null);
+  var langState = useState<string|null>(null);
   var lang = langState[0];
   var setLang = langState[1];
 
@@ -456,19 +373,11 @@ export default function KSIMSupport() {
   var section = sectionState[0];
   var setSection = sectionState[1];
 
-  var subIssueState = useState(null);
+  var subIssueState = useState<string|null>(null);
   var subIssue = subIssueState[0];
   var setSubIssue = subIssueState[1];
 
-  var formStateHook = useState({
-    name: "",
-    phoneModel: "",
-    simNumber: "",
-    purchaseLoc: "",
-    issueType: "",
-    screenshot: null,
-    message: "",
-  });
+  var formStateHook = useState({ name:"", phoneModel:"", simNumber:"", purchaseLoc:"", issueType:"", screenshot:null as any, message:"" });
   var formState = formStateHook[0];
   var setFormState = formStateHook[1];
 
@@ -480,7 +389,7 @@ export default function KSIMSupport() {
   var pwaBanner = pwaBannerState[0];
   var setPwaBanner = pwaBannerState[1];
 
-  var contactRef = useRef(null);
+  var contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(function() {
     if (PWA_CONFIG.enabled) {
@@ -601,7 +510,7 @@ export default function KSIMSupport() {
                       <div className="space-y-3">
                         {Object.entries(t.notWorking.issues).map(function(entry) {
                           var key = entry[0];
-                          var issue = entry[1];
+                          var issue = entry[1] as any;
                           return (
                             <button key={key} onClick={function() { setSubIssue(key); }} className="w-full flex items-center justify-between bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-xl px-4 py-4 text-left transition-colors min-h-14">
                               <span className="font-semibold text-gray-800">{issue.label}</span>
@@ -613,9 +522,9 @@ export default function KSIMSupport() {
                     ) : (
                       <div>
                         <button onClick={function() { setSubIssue(null); }} className="mb-4 text-sm text-blue-600 font-medium flex items-center gap-1">
-                          <SvgLeft cls="w-4 h-4"/>{t.notWorking.issues[subIssue].label}
+                          <SvgLeft cls="w-4 h-4"/>{(t.notWorking.issues as any)[subIssue].label}
                         </button>
-                        <StepList steps={t.notWorking.issues[subIssue].steps}/>
+                        <StepList steps={(t.notWorking.issues as any)[subIssue].steps}/>
                       </div>
                     )}
                   </Card>
@@ -645,12 +554,10 @@ export default function KSIMSupport() {
                   <Card>
                     <SecHeader title={t.contact.title} onBack={goHome}/>
                     <InfoBox text={t.contact.prepare}/>
-                    <div className="grid grid-cols-2 gap-3">
-                      <a href={SUPPORT_LINKS.liveChat} className="flex flex-col items-center justify-center gap-2 bg-blue-600 text-white rounded-xl py-5 font-bold hover:bg-blue-700 active:scale-95 transition-all min-h-20"><SvgChat cls="w-6 h-6"/>{t.contact.channels.liveChat}</a>
-                      <a href={SUPPORT_LINKS.whatsapp} target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center gap-2 bg-green-500 text-white rounded-xl py-5 font-bold hover:bg-green-600 active:scale-95 transition-all min-h-20"><SvgWa cls="w-6 h-6"/>{t.contact.channels.whatsapp}</a>
-                      <a href={SUPPORT_LINKS.wechat} target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center gap-2 bg-green-600 text-white rounded-xl py-5 font-bold hover:bg-green-700 active:scale-95 transition-all min-h-20"><span className="text-2xl">{"💬"}</span>{t.contact.channels.wechat}</a>
-                      <a href={SUPPORT_LINKS.kakao} target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center gap-2 bg-yellow-400 text-yellow-900 rounded-xl py-5 font-bold hover:bg-yellow-500 active:scale-95 transition-all min-h-20"><span className="text-2xl">{"💛"}</span>{t.contact.channels.kakao}</a>
-                    </div>
+                    {/* WhatsApp 버튼만 표시 */}
+                    <a href={SUPPORT_LINKS.whatsapp} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-green-500 text-white rounded-xl py-5 font-bold text-lg hover:bg-green-600 active:scale-95 transition-all min-h-20 w-full">
+                      <SvgWa cls="w-7 h-7"/>{t.contact.channels.whatsapp}
+                    </a>
                   </Card>
                   <Card>
                     <h3 className="text-lg font-bold text-gray-900 mb-4">{t.contact.form.title}</h3>
@@ -667,7 +574,7 @@ export default function KSIMSupport() {
                           return (
                             <div key={key}>
                               <label className="block text-sm font-semibold text-gray-700 mb-1">{label}</label>
-                              <input type="text" value={formState[key]} onChange={function(e) { setFormState(function(s) { var next = Object.assign({}, s); next[key] = e.target.value; return next; }); }} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-blue-400 min-h-12"/>
+                              <input type="text" value={(formState as any)[key]} onChange={function(e) { setFormState(function(s) { var next = Object.assign({}, s); (next as any)[key] = e.target.value; return next; }); }} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-blue-400 min-h-12"/>
                             </div>
                           );
                         })}
@@ -680,11 +587,11 @@ export default function KSIMSupport() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-1">{t.contact.form.screenshot}</label>
-                          <input type="file" accept="image/*" onChange={function(e) { setFormState(function(s) { return Object.assign({}, s, {screenshot: e.target.files[0]}); }); }} className="w-full text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 file:font-semibold"/>
+                          <input type="file" accept="image/*" onChange={function(e) { setFormState(function(s) { return Object.assign({}, s, {screenshot: e.target.files?.[0]}); }); }} className="w-full text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 file:font-semibold"/>
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-1">{t.contact.form.message}</label>
-                          <textarea rows="4" value={formState.message} onChange={function(e) { setFormState(function(s) { return Object.assign({}, s, {message: e.target.value}); }); }} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-blue-400 resize-none"/>
+                          <textarea rows={4} value={formState.message} onChange={function(e) { setFormState(function(s) { return Object.assign({}, s, {message: e.target.value}); }); }} className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-blue-400 resize-none"/>
                         </div>
                         <button onClick={function() { setFormDone(true); }} className="w-full py-4 rounded-2xl bg-blue-600 text-white font-bold text-base hover:bg-blue-700 active:scale-95 transition-all min-h-14">{t.contact.form.submit}</button>
                       </div>
@@ -700,14 +607,11 @@ export default function KSIMSupport() {
 
               {section === SEC.CHANNEL && (
                 <div className="space-y-4">
-                  {/* 1. 섹션 제목 + 설명 */}
                   <Card>
                     <SecHeader title={t.channel.title} onBack={goHome}/>
                     <p className="text-gray-600 text-sm">{t.channel.intro}</p>
                   </Card>
-
-                  {/* 2. 가이드 카드 목록 */}
-                  {t.channel.arrival.cards.map(function(card, i) {
+                  {t.channel.arrival.cards.map(function(card: any, i: number) {
                     return (
                       <div key={i} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
                         <p className="font-bold text-gray-800 mb-3 flex items-center gap-2 text-base">
@@ -716,14 +620,13 @@ export default function KSIMSupport() {
                         {card.body && <p className="text-sm text-gray-600 whitespace-pre-line mb-3">{card.body}</p>}
                         {card.tmoney && (
                           <div className="space-y-3 mt-2">
-                            {/* T1 / T2 구매 장소 */}
                             <div className="grid grid-cols-2 gap-2">
-                              {[card.tmoney.t1, card.tmoney.t2].map(function(terminal, ti) {
+                              {[card.tmoney.t1, card.tmoney.t2].map(function(terminal: any, ti: number) {
                                 return (
                                   <div key={ti} className="bg-blue-50 border border-blue-100 rounded-xl p-3">
                                     <p className="text-xs font-bold text-blue-600 mb-2">{terminal.label}</p>
                                     <ul className="space-y-1">
-                                      {terminal.items.map(function(item, k) {
+                                      {terminal.items.map(function(item: string, k: number) {
                                         return <li key={k} className="text-xs text-gray-600 flex gap-1.5"><span className="text-blue-300 flex-shrink-0">{"•"}</span>{item}</li>;
                                       })}
                                     </ul>
@@ -731,14 +634,13 @@ export default function KSIMSupport() {
                                 );
                               })}
                             </div>
-                            {/* 충전 장소 + 사용처 */}
                             <div className="grid grid-cols-2 gap-2">
-                              {[card.tmoney.topup, card.tmoney.use].map(function(section, si) {
+                              {[card.tmoney.topup, card.tmoney.use].map(function(sec: any, si: number) {
                                 return (
                                   <div key={si} className="bg-gray-50 border border-gray-100 rounded-xl p-3">
-                                    <p className="text-xs font-bold text-gray-600 mb-2">{section.label}</p>
+                                    <p className="text-xs font-bold text-gray-600 mb-2">{sec.label}</p>
                                     <ul className="space-y-1">
-                                      {section.items.map(function(item, k) {
+                                      {sec.items.map(function(item: string, k: number) {
                                         return <li key={k} className="text-xs text-gray-600 flex gap-1.5"><span className="text-gray-300 flex-shrink-0">{"•"}</span>{item}</li>;
                                       })}
                                     </ul>
@@ -750,7 +652,7 @@ export default function KSIMSupport() {
                         )}
                         {card.taxiApps && (
                           <div className="space-y-2 mt-2">
-                            {card.taxiApps.map(function(app,j) {
+                            {card.taxiApps.map(function(app: any, j: number) {
                               return (
                                 <div key={j} className="bg-gray-50 rounded-xl p-3 border border-gray-100">
                                   <p className="text-sm font-bold text-gray-800 mb-1">{app.name}</p>
@@ -765,26 +667,15 @@ export default function KSIMSupport() {
                             {mustHaveApps.map(function(app, j) {
                               return (
                                 <div key={j} className="bg-white border border-gray-100 rounded-2xl px-3 py-3 flex items-center gap-3 shadow-sm">
-                                  {/* 앱 아이콘 — public/images/apps/ 에 이미지 넣으면 표시됨 */}
                                   <div className="flex-shrink-0 w-12 h-12 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center">
-                                    <img
-                                      src={app.icon}
-                                      alt={app.name}
-                                      className="w-12 h-12 object-cover rounded-xl"
-                                      onError={function(e) {
-                                        e.target.style.display = "none";
-                                        e.target.nextSibling.style.display = "flex";
-                                      }}
-                                    />
-                                    {/* fallback 아이콘 — 이미지 없을 때 표시 */}
+                                    <img src={app.icon} alt={app.name} className="w-12 h-12 object-cover rounded-xl"
+                                      onError={function(e: any) { e.target.style.display="none"; e.target.nextSibling.style.display="flex"; }}/>
                                     <span className="text-2xl hidden">{"📱"}</span>
                                   </div>
-                                  {/* 앱 이름 + 설명 */}
                                   <div className="flex-1 min-w-0">
                                     <p className="text-sm font-bold text-gray-900 leading-tight">{app.name}</p>
-                                    <p className="text-xs text-gray-400 mt-0.5 leading-snug">{app.description[lang] || app.description.en}</p>
+                                    <p className="text-xs text-gray-400 mt-0.5 leading-snug">{(app.description as any)[lang] || app.description.en}</p>
                                   </div>
-                                  {/* 다운로드 아이콘 — appStoreUrl / googlePlayUrl 연결 자리 */}
                                   <div className="flex-shrink-0 text-gray-300 text-lg">{"↓"}</div>
                                 </div>
                               );
@@ -793,7 +684,7 @@ export default function KSIMSupport() {
                         )}
                         {card.list && (
                           <ul className="mt-2 space-y-1">
-                            {card.list.map(function(item,k) {
+                            {card.list.map(function(item: string, k: number) {
                               return <li key={k} className="text-sm text-gray-600 flex gap-2"><span className="text-blue-400 mt-0.5">{"•"}</span>{item}</li>;
                             })}
                           </ul>
@@ -801,7 +692,7 @@ export default function KSIMSupport() {
                         {card.tip && <p className="mt-3 text-xs text-teal-700 bg-teal-50 border border-teal-100 rounded-xl px-3 py-2">{"💡 " + card.tip}</p>}
                         {card.emergency && (
                           <div className="grid grid-cols-2 gap-2 mt-2">
-                            {card.emergency.map(function(item, j) {
+                            {card.emergency.map(function(item: any, j: number) {
                               return (
                                 <div key={j} className="bg-red-50 border border-red-100 rounded-xl p-3 text-center">
                                   <p className="text-xs text-red-400 font-semibold mb-1">{item.label}</p>
@@ -814,8 +705,6 @@ export default function KSIMSupport() {
                       </div>
                     );
                   })}
-
-                  {/* 3. 마지막 CTA — 채널 추가 유도 */}
                   <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{"📲 " + t.channel.channelCtaTitle}</h3>
                     <p className="text-gray-600 text-sm mb-3">{t.channel.channelCtaDesc}</p>
