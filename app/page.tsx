@@ -9,7 +9,7 @@ const SUPPORT_LINKS = {
 };
 
 const CHANNEL_LINKS = {
-  whatsappChannel: "#",
+  whatsappChannel: "https://whatsapp.com/channel/0029VbCDmwv1t90lofOvMM2J",
   wechat: "#",
   kakaoChannel: "#",
 };
@@ -68,33 +68,16 @@ const mustHaveApps = [
   },
 ];
 
-const travelDataPlans = [
-  { refCode:"USIM7D10G",  planName:"10GB / 7 Days",       usageText:"Maps / Chat / Web",                 duration:"7 Days",  data:"10GB",      voiceSms:"Data Only", price:"USD 14", note:"Turn on data roaming before use.", recommended:false },
-  { refCode:"USIM15D10G", planName:"10GB / 15 Days",      usageText:"Maps / Chat / Web",                 duration:"15 Days", data:"10GB",      voiceSms:"Data Only", price:"USD 17", note:"Turn on data roaming before use.", recommended:false },
-  { refCode:"USIM15D20G", planName:"20GB / 15 Days",      usageText:"SNS / Translation / Light Video",   duration:"15 Days", data:"20GB",      voiceSms:"Data Only", price:"USD 20", note:"Turn on data roaming before use.", recommended:true  },
-  { refCode:"USIM30D20G", planName:"20GB / 30 Days",      usageText:"SNS / Maps / Translation",          duration:"30 Days", data:"20GB",      voiceSms:"Data Only", price:"USD 23", note:"Turn on data roaming before use.", recommended:false },
-  { refCode:"USIM30D50G", planName:"50GB / 30 Days",      usageText:"YouTube / Instagram / Video Calls", duration:"30 Days", data:"50GB",      voiceSms:"Data Only", price:"USD 34", note:"Turn on data roaming before use.", recommended:true  },
-  { refCode:"USIM7DUNL",  planName:"Unlimited / 7 Days",  usageText:"Worry-free data use",               duration:"7 Days",  data:"Unlimited", voiceSms:"Data Only", price:"TBD",    note:"Turn on data roaming before use.", recommended:true  },
-  { refCode:"USIM15DUNL", planName:"Unlimited / 15 Days", usageText:"Worry-free data use",               duration:"15 Days", data:"Unlimited", voiceSms:"Data Only", price:"TBD",    note:"Turn on data roaming before use.", recommended:true  },
-  { refCode:"USIM30DUNL", planName:"Unlimited / 30 Days", usageText:"Worry-free data use",               duration:"30 Days", data:"Unlimited", voiceSms:"Data Only", price:"TBD",    note:"Turn on data roaming before use.", recommended:true  },
-];
-
-const postpaidPlans = [
-  { carrier:"LG U+", planName:"Foreigner Student Special Plan", targetVisa:"D-2 / D-4", monthlyPrice:"KRW 29,750", data:"160GB + 5Mbps", voice:"Unlimited calls and texts", contract:"12-month contract", promotion:"Special monthly discount available", requiredDocuments:"Passport, ARC, Korean bank account, school document", caution:"Eligibility depends on visa type, ARC, bank account, and carrier approval.", buttonText:"Check Eligibility" },
-  { carrier:"SKT",   planName:"Foreigner Worker Plan",          targetVisa:"E-7 / E-9", monthlyPrice:"KRW 29,750", data:"160GB + 5Mbps", voice:"Unlimited calls and texts", contract:"12-month contract", promotion:"Available for eligible foreign workers",  requiredDocuments:"Passport, ARC, Korean bank account, employment document",  caution:"Final approval depends on carrier verification.", buttonText:"Check Eligibility" },
-];
-
 const SEC = {
   HOME:"home", START:"start", IPHONE:"iphone", ANDROID:"android",
-  NOT_WORKING:"notWorking", TRAVEL:"travel", CONTACT:"contact",
-  CHANNEL:"channel", POSTPAID:"postpaid",
+  NOT_WORKING:"notWorking", CONTACT:"contact", CHANNEL:"channel",
 };
 
 const C = {
   en: {
     langLabel:"English",
     hero:{ sub:"Having trouble with your SIM?", desc:"Please choose your language and follow the setup guide." },
-    menu:{ start:"Start Guide", iphone:"iPhone Setting", android:"Android Setting", notWorking:"SIM Not Working", travel:"Travel Data SIM Plans", contact:"Contact Support", channel:"Airport Arrival Guide", postpaid:"Postpaid Plans" },
+    menu:{ start:"Start Guide", iphone:"iPhone Setting", android:"Android Setting", notWorking:"SIM Not Working", contact:"Contact Support", channel:"Airport Arrival Guide" },
     startGuide:{ title:"Start Guide", steps:["Insert the SIM card into your phone.","Restart your phone.","Turn on Mobile Data.","Turn on Data Roaming.","Set Network Selection to Automatic.","Wait 1-3 minutes for the network to connect."] },
     iphone:{ title:"iPhone Setting", steps:["Go to Settings > Cellular.","Turn on Cellular Data.","Go to Cellular Data Options.","Turn on Data Roaming.","Go to Network Selection.","Turn on Automatic.","Restart your iPhone."] },
     android:{ title:"Android Setting", steps:["Go to Settings > Connections.","Tap Mobile Networks.","Turn on Mobile Data.","Turn on Data Roaming.","Set Network Mode to Auto.","Set Network Operators to Select Automatically.","Restart your phone."] },
@@ -108,7 +91,6 @@ const C = {
         refund:{ label:"Refund / Exchange", steps:["Please contact support with your SIM package photo.","Send your purchase location and purchase date.","Refund or exchange may be limited if the issue is caused by an unsupported phone or locked device.","Used SIM products may not be refundable."] },
       }
     },
-    travel:{ title:"Travel Data SIM Plans", intro:"Please check your SIM plan by REF number.", caution:"Actual price, data policy, and availability may vary depending on sales channel and promotion.", labels:{ ref:"REF", duration:"Duration", data:"Data", voiceSms:"Voice/SMS", price:"Price", note:"Note", recommended:"Recommended", unlimited:"Unlimited", contactBtn:"Contact Support" } },
     contact:{
       title:"Contact Support",
       prepare:"Before contacting support, please prepare your phone model, SIM number, purchase location, and screenshot.",
@@ -122,9 +104,6 @@ const C = {
       channelCtaDesc:"Follow our channel for SIM setup help, airport arrival tips, special offers, and long-term stay updates.",
       buttons:{ whatsapp:"Follow WhatsApp Channel", wechat:"Add WeChat", kakao:"Add KakaoTalk Channel" },
       disclaimer:"By following our channel, you may receive KSIM updates and promotional information. You can unfollow anytime.",
-      footerCta:"Stay connected with KSIM.",
-      footerCtaSub:"Follow our channel for support updates and special offers.",
-      arrivalBtn:"View Airport Arrival Guide",
       arrival:{ title:"Airport Arrival Guide", cards:[
         { icon:"📶", title:"SIM Setup First", body:"After purchasing KSIM at the airport, insert the SIM card and restart your phone.\nTurn on Mobile Data and Data Roaming.\nSet Network Selection to Automatic and wait 1-3 minutes." },
         { icon:"📡", title:"Airport Wi-Fi", body:"If your SIM is not connected yet, use airport Wi-Fi first.\nThen open KSIM Support and follow the setup guide or contact support." },
@@ -143,17 +122,15 @@ const C = {
         { icon:"🔌", title:"Power Plug Guide", body:"Korea uses Type C / Type F plugs.\nVoltage is 220V.\nIf your plug is different, buy an adapter at an airport shop or convenience store." },
         { icon:"💡", title:"Data Saving Tips", body:"To save mobile data:", list:["Use Wi-Fi for video","Turn off auto-play videos","Lower YouTube video quality","Download maps in advance","Turn off background data for unused apps"] },
         { icon:"🚨", title:"Emergency Numbers", emergency:[{ label:"Police", number:"112" },{ label:"Fire / Ambulance", number:"119" },{ label:"Tourist Information", number:"1330" },{ label:"KSIM Support", number:"Contact us from this page" }] },
-        { icon:"📋", title:"Long-term Phone Number Consultation", body:"Staying in Korea long-term?\nIf you have an ARC, you may be eligible for a postpaid mobile plan.\nA Korean phone number registered with ARC may be useful for banking, verification, delivery apps, and online shopping." },
       ]},
     },
-    postpaid:{ title:"Postpaid Plans for Long-Term Foreigners in Korea", intro:"Are you staying in Korea for a long time?\nWe also provide postpaid mobile plan consultation for foreign students, workers, and long-term residents in Korea.", eligible:{ title:"Who Can Apply", list:["D-2 / D-4 Student Visa","E-7 / E-9 Worker Visa","Foreign residents with ARC"] }, benefits:{ title:"Key Benefits", list:["Korean mobile number","Monthly billing","Stable data service","Online verification support","Plans for students and workers"] }, docs:{ title:"Required Documents", list:["Passport","Alien Registration Card","Korean bank account","Visa or school/work documents"] }, caution:"Available plans and approval may vary depending on visa type, ARC, Korean bank account, and carrier verification.", cta:"Check Postpaid Plan", planCard:{ carrier:"Carrier", visa:"Target Visa", price:"Monthly Price", data:"Data", voice:"Voice", contract:"Contract", promo:"Promotion", docs:"Required Docs", caution:"Note" } },
     pwa:{ title:"Add KSIM Support to your home screen.", desc:"Quickly access SIM setup, troubleshooting, airport arrival guide, and support contact.", button:"Add to Home Screen", dismiss:"Later" },
     footer:{ company:"Company", email:"Email", hours:"Support Hours" },
   },
   zh: {
     langLabel:"中文",
     hero:{ sub:"您的SIM卡遇到问题了吗？", desc:"请选择您的语言，然后按照设置指南操作。" },
-    menu:{ start:"使用指南", iphone:"iPhone设置", android:"Android设置", notWorking:"SIM卡无法使用", travel:"旅行数据SIM套餐", contact:"联系客服", channel:"机场入境指南", postpaid:"后付费套餐" },
+    menu:{ start:"使用指南", iphone:"iPhone设置", android:"Android设置", notWorking:"SIM卡无法使用", contact:"联系客服", channel:"机场入境指南" },
     startGuide:{ title:"使用指南", steps:["将SIM卡插入手机。","重启手机。","打开移动数据。","打开数据漫游。","将网络选择设置为自动。","等待1-3分钟连接网络。"] },
     iphone:{ title:"iPhone设置", steps:["打开设置 > 蜂窝网络。","打开蜂窝数据。","进入蜂窝数据选项。","打开数据漫游。","进入网络选择。","打开自动。","重启iPhone。"] },
     android:{ title:"Android设置", steps:["打开设置 > 连接。","点击移动网络。","打开移动数据。","打开数据漫游。","将网络模式设置为自动。","将网络运营商设置为自动选择。","重启手机。"] },
@@ -167,7 +144,6 @@ const C = {
         refund:{ label:"退款 / 换货", steps:["请联系客服并发送SIM卡包装照片。","请发送购买地点和购买日期。","如果问题是由不支持的手机或锁定手机引起，可能无法退款或更换。","已使用的SIM产品可能无法退款。"] },
       }
     },
-    travel:{ title:"旅行数据SIM套餐", intro:"请通过REF编号确认您的SIM套餐。", caution:"实际价格、流量政策和可购买情况可能会根据销售渠道和促销活动而有所不同。", labels:{ ref:"REF", duration:"使用期限", data:"数据流量", voiceSms:"语音/短信", price:"价格", note:"注意事项", recommended:"推荐", unlimited:"无限流量", contactBtn:"联系客服" } },
     contact:{
       title:"联系客服",
       prepare:"联系客服前，请准备手机型号、SIM卡号码、购买地点和手机截图。",
@@ -181,9 +157,6 @@ const C = {
       channelCtaDesc:"关注频道，获取SIM卡设置帮助、机场入境实用信息、特别优惠和长期居住套餐信息。",
       buttons:{ whatsapp:"关注 WhatsApp 频道", wechat:"添加微信", kakao:"添加 KakaoTalk 频道" },
       disclaimer:"关注频道后，您可能会收到KSIM的通知和促销信息。您可以随时取消关注。",
-      footerCta:"与 KSIM 保持联系。",
-      footerCtaSub:"关注我们的频道，获取使用帮助和特别优惠。",
-      arrivalBtn:"查看机场入境指南",
       arrival:{ title:"机场入境指南", cards:[
         { icon:"📶", title:"首先设置SIM卡", body:"在机场购买KSIM后，请插入SIM卡并重启手机。\n打开移动数据和数据漫游。\n将网络选择设置为自动，并等待1-3分钟。" },
         { icon:"📡", title:"机场Wi-Fi", body:"如果SIM卡尚未连接，请先使用机场Wi-Fi。\n然后打开KSIM Support，查看设置指南或联系客服。" },
@@ -202,17 +175,15 @@ const C = {
         { icon:"🔌", title:"插头和电压指南", body:"韩国使用 C型 / F型 插头。\n电压为220V。\n如果插头不同，请在机场商店或便利店购买转换插头。" },
         { icon:"💡", title:"流量节省技巧", body:"节省流量的方法：", list:["视频观看时尽量使用Wi-Fi","关闭视频自动播放","降低YouTube画质","提前下载地图","关闭不常用应用的后台数据"] },
         { icon:"🚨", title:"紧急联系电话", emergency:[{ label:"报警", number:"112" },{ label:"火灾 / 急救", number:"119" },{ label:"旅游咨询", number:"1330" },{ label:"KSIM客服", number:"可通过本页面联系" }] },
-        { icon:"📋", title:"长期手机号咨询", body:"计划在韩国长期居住吗？\n如果您持有外国人登录证，可能可以申请后付费手机套餐。\n使用外国人登录证登记的韩国手机号可用于银行、身份认证、外卖应用和网购等服务。" },
       ]},
     },
-    postpaid:{ title:"韩国长期居住外国人后付费套餐", intro:"您是否计划在韩国长期居住？\n我们也提供面向外国留学生、外国劳动者和长期居住外国人的后付费手机套餐咨询。", eligible:{ title:"申请对象", list:["D-2 / D-4 留学签证","E-7 / E-9 工作签证","持有外国人登录证的外国人"] }, benefits:{ title:"主要优势", list:["韩国手机号码","每月后付费","稳定的数据服务","可用于部分本人认证","提供适合学生和劳动者的套餐"] }, docs:{ title:"所需材料", list:["护照","外国人登录证","韩国银行账户","签证或学校/工作相关文件"] }, caution:"可办理的套餐和审核结果可能会根据签证类型、外国人登录证、韩国银行账户和运营商审核结果而不同。", cta:"咨询后付费套餐", planCard:{ carrier:"运营商", visa:"适用签证", price:"月费", data:"数据", voice:"语音", contract:"合约", promo:"优惠", docs:"所需材料", caution:"注意" } },
     pwa:{ title:"将 KSIM Support 添加到主屏幕。", desc:"快速查看SIM卡设置、问题解决、机场入境指南和联系客服。", button:"添加到主屏幕", dismiss:"稍后" },
     footer:{ company:"公司", email:"邮箱", hours:"服务时间" },
   },
   ko: {
     langLabel:"한국어",
     hero:{ sub:"유심 사용에 문제가 있으신가요?", desc:"언어를 선택하고 설정 가이드를 따라주세요." },
-    menu:{ start:"시작 가이드", iphone:"아이폰 설정", android:"안드로이드 설정", notWorking:"유심 불량/오류", travel:"여행자 데이터 유심 요금제", contact:"고객센터 연결", channel:"공항 도착 가이드", postpaid:"후불제 요금제" },
+    menu:{ start:"시작 가이드", iphone:"아이폰 설정", android:"안드로이드 설정", notWorking:"유심 불량/오류", contact:"고객센터 연결", channel:"공항 도착 가이드" },
     startGuide:{ title:"시작 가이드", steps:["유심을 휴대폰에 넣어주세요.","휴대폰을 재부팅해주세요.","모바일 데이터를 켜주세요.","데이터 로밍을 켜주세요.","네트워크 선택을 자동으로 설정해주세요.","1~3분 정도 기다려주세요."] },
     iphone:{ title:"아이폰 설정", steps:["설정 > 셀룰러로 이동하세요.","셀룰러 데이터를 켜주세요.","셀룰러 데이터 옵션으로 이동하세요.","데이터 로밍을 켜주세요.","네트워크 선택으로 이동하세요.","자동을 켜주세요.","아이폰을 재부팅해주세요."] },
     android:{ title:"안드로이드 설정", steps:["설정 > 연결로 이동하세요.","모바일 네트워크를 선택하세요.","모바일 데이터를 켜주세요.","데이터 로밍을 켜주세요.","네트워크 모드를 자동으로 설정해주세요.","통신사 선택을 자동으로 설정해주세요.","휴대폰을 재부팅해주세요."] },
@@ -226,7 +197,6 @@ const C = {
         refund:{ label:"환불 / 교체", steps:["유심 패키지 사진을 고객센터로 보내주세요.","구매 장소와 구매일을 알려주세요.","지원 불가 기기 또는 잠금폰 문제인 경우 환불/교체가 제한될 수 있습니다.","이미 사용된 유심 상품은 환불이 제한될 수 있습니다."] },
       }
     },
-    travel:{ title:"여행자 데이터 유심 요금제", intro:"REF번호로 구매하신 유심 상품을 확인해주세요.", caution:"실제 판매가, 데이터 제공 조건, 구매 가능 여부는 판매처와 프로모션에 따라 달라질 수 있습니다.", labels:{ ref:"REF", duration:"이용기간", data:"데이터", voiceSms:"음성/문자", price:"가격", note:"주의사항", recommended:"추천", unlimited:"무제한", contactBtn:"고객센터 연결" } },
     contact:{
       title:"고객센터 연결",
       prepare:"문의 전 휴대폰 기종, 유심번호, 구매 장소, 화면 캡처를 준비해주세요.",
@@ -240,9 +210,6 @@ const C = {
       channelCtaDesc:"채널을 추가하면 유심 설정 도움, 공항 도착 정보, 특별 혜택, 장기체류 요금제 안내를 받을 수 있습니다.",
       buttons:{ whatsapp:"WhatsApp 채널 추가", wechat:"WeChat 추가", kakao:"KakaoTalk 채널 추가" },
       disclaimer:"채널을 추가하면 KSIM 안내 및 프로모션 정보를 받을 수 있으며, 언제든지 취소할 수 있습니다.",
-      footerCta:"KSIM과 계속 연결하세요.",
-      footerCtaSub:"채널을 추가하고 유심 안내와 특별 혜택을 받아보세요.",
-      arrivalBtn:"공항 도착 가이드 보기",
       arrival:{ title:"공항 도착 가이드", cards:[
         { icon:"📶", title:"유심 설정 먼저", body:"공항에서 KSIM을 구매한 후 유심을 넣고 휴대폰을 재부팅해주세요.\n모바일 데이터와 데이터 로밍을 켜주세요.\n네트워크 선택을 자동으로 설정하고 1~3분 정도 기다려주세요." },
         { icon:"📡", title:"공항 Wi-Fi", body:"유심이 아직 연결되지 않는다면 먼저 공항 Wi-Fi를 사용하세요.\n그다음 KSIM Support에서 설정 안내를 확인하거나 고객센터로 문의하세요." },
@@ -261,10 +228,8 @@ const C = {
         { icon:"🔌", title:"충전기 / 콘센트 안내", body:"한국은 C타입 / F타입 플러그를 사용합니다.\n전압은 220V입니다.\n플러그 모양이 다르면 공항 매장이나 편의점에서 어댑터를 구매하세요." },
         { icon:"💡", title:"데이터 절약 팁", body:"데이터 절약 방법:", list:["영상 시청은 Wi-Fi 사용","영상 자동재생 끄기","유튜브 화질 낮추기","지도 미리 다운로드","사용하지 않는 앱의 백그라운드 데이터 끄기"] },
         { icon:"🚨", title:"긴급 연락처", emergency:[{ label:"경찰", number:"112" },{ label:"화재 / 응급차", number:"119" },{ label:"관광안내", number:"1330" },{ label:"KSIM 고객센터", number:"이 페이지에서 문의" }] },
-        { icon:"📋", title:"장기체류 전화번호 상담", body:"한국에 장기 체류하시나요?\n외국인등록증이 있다면 후불제 요금제 가입 상담이 가능할 수 있습니다.\n외국인등록증으로 등록된 한국 휴대폰 번호는 은행, 본인인증, 배달앱, 온라인 쇼핑 등에 유용할 수 있습니다." },
       ]},
     },
-    postpaid:{ title:"장기체류 외국인 전용 후불제 요금제", intro:"한국에 장기 체류하시나요?\n유학생, 외국인 근로자, 장기체류 외국인을 위한 후불제 요금제 상담도 가능합니다.", eligible:{ title:"가입 가능 대상", list:["D-2 / D-4 유학생 비자","E-7 / E-9 근로자 비자","외국인등록증 보유 외국인"] }, benefits:{ title:"주요 장점", list:["한국 휴대폰 번호 사용","매월 후불 청구","안정적인 데이터 이용","일부 온라인 본인인증 가능","유학생/근로자 맞춤 요금제 상담 가능"] }, docs:{ title:"필요 서류", list:["여권","외국인등록증","한국 은행 계좌","비자 또는 학교/근로 관련 서류"] }, caution:"가입 가능 요금제와 승인 여부는 비자 종류, 외국인등록증, 한국 은행계좌, 통신사 심사 결과에 따라 달라질 수 있습니다.", cta:"후불 요금제 상담하기", planCard:{ carrier:"통신사", visa:"대상 비자", price:"월 요금", data:"데이터", voice:"통화", contract:"약정", promo:"프로모션", docs:"필요 서류", caution:"주의사항" } },
     pwa:{ title:"KSIM Support를 홈 화면에 추가하세요.", desc:"유심 설정, 문제 해결, 공항 도착 가이드, 고객센터 연결을 빠르게 확인할 수 있습니다.", button:"홈 화면에 추가", dismiss:"나중에" },
     footer:{ company:"회사", email:"이메일", hours:"운영시간" },
   },
@@ -310,57 +275,6 @@ function StepList({steps}: {steps: string[]}) {
         );
       })}
     </ol>
-  );
-}
-function TravelCard({plan, labels, onContact}: {plan: any, labels: any, onContact: () => void}) {
-  var isUnl = plan.data === "Unlimited";
-  var isTBD = plan.price === "TBD";
-  return (
-    <div className={"bg-white rounded-2xl shadow-sm border overflow-hidden " + (plan.recommended ? "border-teal-400" : "border-gray-100")}>
-      {plan.recommended && <div className="bg-teal-500 px-4 py-1.5"><span className="text-white text-xs font-bold">{"⭐ " + labels.recommended}</span></div>}
-      <div className="p-5">
-        <div className="mb-3"><span className="bg-gray-100 text-gray-500 text-xs font-mono font-bold px-2.5 py-1 rounded-md">{labels.ref + ": " + plan.refCode}</span></div>
-        <h4 className="text-2xl font-extrabold text-gray-900 mb-0.5 leading-tight">{plan.planName}</h4>
-        <p className="text-xs text-gray-400 mb-4">{plan.usageText}</p>
-        <div className="grid grid-cols-2 gap-2 mb-4">
-          <div className="bg-gray-50 rounded-xl p-3 text-center">
-            <p className="text-xs text-gray-400 font-semibold uppercase mb-1">{labels.duration}</p>
-            <p className="text-xl font-extrabold text-gray-800">{plan.duration}</p>
-          </div>
-          <div className={"rounded-xl p-3 text-center " + (isUnl ? "bg-orange-50" : "bg-teal-50")}>
-            <p className={"text-xs font-semibold uppercase mb-1 " + (isUnl ? "text-orange-400" : "text-teal-500")}>{labels.data}</p>
-            <p className={"text-xl font-extrabold " + (isUnl ? "text-orange-500" : "text-teal-700")}>{plan.data}</p>
-            {isUnl && <span className="text-xs font-bold text-orange-500 bg-orange-100 px-1.5 py-0.5 rounded-full">{"∞ " + labels.unlimited}</span>}
-          </div>
-        </div>
-        <div className="space-y-2 mb-4 pb-4 border-b border-gray-100">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-400">{labels.voiceSms}</span>
-            <span className="text-gray-600">{plan.voiceSms}</span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-400">{labels.price}</span>
-            <span className={"text-xl font-extrabold " + (isTBD ? "text-gray-300 italic text-base" : "text-blue-600")}>{plan.price}</span>
-          </div>
-        </div>
-        <div className="bg-amber-50 border border-amber-100 rounded-xl px-3 py-2 mb-4">
-          <p className="text-amber-700 text-xs leading-relaxed"><span className="font-semibold">{labels.note + ": "}</span>{plan.note}</p>
-        </div>
-        <button onClick={onContact} className="w-full py-4 rounded-xl bg-teal-600 text-white font-bold text-sm hover:bg-teal-700 active:scale-95 transition-all flex items-center justify-center gap-2 min-h-12">
-          <SvgHeadset cls="w-4 h-4"/>{labels.contactBtn}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function ChannelButtons({t}: {t: any}) {
-  return (
-    <div className="space-y-3">
-      <a href={CHANNEL_LINKS.whatsappChannel} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2.5 w-full py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-bold text-sm active:scale-95 transition-all min-h-12"><SvgWa cls="w-5 h-5"/>{t.channel.buttons.whatsapp}</a>
-      <a href={CHANNEL_LINKS.wechat} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2.5 w-full py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold text-sm active:scale-95 transition-all min-h-12"><span className="text-lg">{"💬"}</span>{t.channel.buttons.wechat}</a>
-      <a href={CHANNEL_LINKS.kakaoChannel} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2.5 w-full py-4 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold text-sm active:scale-95 transition-all min-h-12"><span className="text-lg">{"💛"}</span>{t.channel.buttons.kakao}</a>
-    </div>
   );
 }
 
@@ -480,13 +394,11 @@ export default function KSIMSupport() {
                   <p className="text-center text-gray-500 text-base">{t.hero.desc}</p>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      {key:SEC.START,       label:t.menu.start,      cls:"bg-blue-600 hover:bg-blue-700 text-white",       full:false},
-                      {key:SEC.IPHONE,      label:t.menu.iphone,     cls:"bg-blue-600 hover:bg-blue-700 text-white",       full:false},
-                      {key:SEC.ANDROID,     label:t.menu.android,    cls:"bg-blue-600 hover:bg-blue-700 text-white",       full:false},
-                      {key:SEC.NOT_WORKING, label:t.menu.notWorking, cls:"bg-red-500 hover:bg-red-600 text-white",         full:false},
-                      {key:SEC.TRAVEL,      label:t.menu.travel,     cls:"bg-teal-600 hover:bg-teal-700 text-white",       full:true},
-                      {key:SEC.CHANNEL,     label:t.menu.channel,    cls:"bg-sky-500 hover:bg-sky-600 text-white",         full:false},
-                      {key:SEC.POSTPAID,    label:t.menu.postpaid,   cls:"bg-violet-600 hover:bg-violet-700 text-white",   full:false},
+                      {key:SEC.START,       label:t.menu.start,      cls:"bg-blue-600 hover:bg-blue-700 text-white",  full:false},
+                      {key:SEC.IPHONE,      label:t.menu.iphone,     cls:"bg-blue-600 hover:bg-blue-700 text-white",  full:false},
+                      {key:SEC.ANDROID,     label:t.menu.android,    cls:"bg-blue-600 hover:bg-blue-700 text-white",  full:false},
+                      {key:SEC.NOT_WORKING, label:t.menu.notWorking, cls:"bg-red-500 hover:bg-red-600 text-white",    full:false},
+                      {key:SEC.CHANNEL,     label:t.menu.channel,    cls:"bg-sky-500 hover:bg-sky-600 text-white",    full:true},
                     ].map(function(item) {
                       return (
                         <button key={item.key} onClick={function() { setSection(item.key); setSubIssue(null); }} className={item.cls + " " + (item.full ? "col-span-2" : "") + " rounded-2xl px-4 py-5 flex items-center gap-3 shadow-sm active:scale-95 transition-all min-h-16 text-left"}>
@@ -536,25 +448,11 @@ export default function KSIMSupport() {
                 </div>
               )}
 
-              {section === SEC.TRAVEL && (
-                <div className="space-y-4">
-                  <Card>
-                    <SecHeader title={t.travel.title} onBack={goHome}/>
-                    <p className="text-gray-600 text-sm mb-4">{t.travel.intro}</p>
-                    <InfoBox text={t.travel.caution}/>
-                  </Card>
-                  {travelDataPlans.map(function(plan) {
-                    return <TravelCard key={plan.refCode} plan={plan} labels={t.travel.labels} onContact={goContact}/>;
-                  })}
-                </div>
-              )}
-
               {section === SEC.CONTACT && (
                 <div ref={contactRef} className="space-y-4">
                   <Card>
                     <SecHeader title={t.contact.title} onBack={goHome}/>
                     <InfoBox text={t.contact.prepare}/>
-                    {/* WhatsApp 버튼만 표시 */}
                     <a href={SUPPORT_LINKS.whatsapp} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-green-500 text-white rounded-xl py-5 font-bold text-lg hover:bg-green-600 active:scale-95 transition-all min-h-20 w-full">
                       <SvgWa cls="w-7 h-7"/>{t.contact.channels.whatsapp}
                     </a>
@@ -710,61 +608,6 @@ export default function KSIMSupport() {
                     <p className="text-gray-600 text-sm mb-3">{t.channel.channelCtaDesc}</p>
                     <p className="text-xs text-gray-400 text-center">{t.channel.disclaimer}</p>
                   </div>
-                </div>
-              )}
-
-              {section === SEC.POSTPAID && (
-                <div className="space-y-4">
-                  <Card>
-                    <SecHeader title={t.postpaid.title} onBack={goHome}/>
-                    <p className="text-gray-700 text-sm whitespace-pre-line mb-5">{t.postpaid.intro}</p>
-                    <div className="space-y-3 mb-4">
-                      {[{data:t.postpaid.eligible,emoji:"🪪"},{data:t.postpaid.benefits,emoji:"✅"},{data:t.postpaid.docs,emoji:"📄"}].map(function(item) {
-                        return (
-                          <div key={item.data.title} className="bg-gray-50 rounded-xl p-4">
-                            <p className="font-bold text-gray-800 mb-2">{item.emoji + " " + item.data.title}</p>
-                            <ul className="space-y-1">
-                              {item.data.list.map(function(li,i) {
-                                return <li key={i} className="text-gray-600 text-sm flex items-start gap-2"><span className="text-blue-400 mt-0.5">{"•"}</span>{li}</li>;
-                              })}
-                            </ul>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <CautionBox text={t.postpaid.caution}/>
-                  </Card>
-                  {postpaidPlans.map(function(plan,idx) {
-                    return (
-                      <Card key={idx} cls="border-l-4 border-l-blue-500">
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{plan.carrier}</span>
-                          <span className="text-xs text-gray-500">{plan.targetVisa}</span>
-                        </div>
-                        <h4 className="text-base font-bold text-gray-900 mb-3">{plan.planName}</h4>
-                        <div className="space-y-2 text-sm">
-                          {[
-                            [t.postpaid.planCard.price,    plan.monthlyPrice,      "font-bold text-blue-700"],
-                            [t.postpaid.planCard.data,     plan.data,              ""],
-                            [t.postpaid.planCard.voice,    plan.voice,             ""],
-                            [t.postpaid.planCard.contract, plan.contract,          ""],
-                            [t.postpaid.planCard.promo,    plan.promotion,         "text-emerald-700"],
-                            [t.postpaid.planCard.docs,     plan.requiredDocuments, ""],
-                          ].map(function(row) {
-                            return (
-                              <div key={row[0]} className="flex gap-2">
-                                <span className="text-gray-400 min-w-20 flex-shrink-0">{row[0]}</span>
-                                <span className={"text-gray-800 " + row[2]}>{row[1]}</span>
-                              </div>
-                            );
-                          })}
-                        </div>
-                        <CautionBox text={plan.caution}/>
-                        <button onClick={goContact} className="mt-4 w-full py-4 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 active:scale-95 transition-all min-h-12">{plan.buttonText}</button>
-                      </Card>
-                    );
-                  })}
-                  <button onClick={goContact} className="w-full py-4 rounded-2xl bg-violet-600 text-white font-bold text-base hover:bg-violet-700 active:scale-95 transition-all shadow-md min-h-14">{t.postpaid.cta}</button>
                 </div>
               )}
 
