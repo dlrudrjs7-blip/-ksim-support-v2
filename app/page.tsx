@@ -26,42 +26,42 @@ const PWA_CONFIG = { enabled: false };
 const mustHaveApps = [
   {
     name: "Naver Map / Kakao Map",
-    description: { en:"Navigation and directions in Korea", zh:"韩国地图和路线导航", ko:"한국 길찾기 / 지도 앱" },
+    description: { en:"Navigation and directions in Korea", zh:"韩国地图和路线导航", ko:"한국 길찾기 / 지도 앱", ja:"韓国の地図・ナビアプリ" },
     icon: "/images/apps/map.png",
     appStoreUrl: "#",
     googlePlayUrl: "#",
   },
   {
     name: "Papago",
-    description: { en:"Translation app", zh:"翻译应用", ko:"번역 앱" },
+    description: { en:"Translation app", zh:"翻译应用", ko:"번역 앱", ja:"翻訳アプリ" },
     icon: "/images/apps/papago.png",
     appStoreUrl: "#",
     googlePlayUrl: "#",
   },
   {
     name: "Kakao T",
-    description: { en:"Taxi booking app", zh:"出租车叫车应用", ko:"택시 호출 앱" },
+    description: { en:"Taxi booking app", zh:"出租车叫车应用", ko:"택시 호출 앱", ja:"タクシー配車アプリ" },
     icon: "/images/apps/kakao-t.png",
     appStoreUrl: "#",
     googlePlayUrl: "#",
   },
   {
     name: "k.ride",
-    description: { en:"Foreigner-friendly taxi app with overseas card payment", zh:"面向外国用户的出租车应用，支持海外银行卡支付", ko:"외국인 친화 택시 앱 / 해외카드 결제 가능" },
+    description: { en:"Foreigner-friendly taxi app with overseas card payment", zh:"面向外国用户的出租车应用，支持海外银行卡支付", ko:"외국인 친화 택시 앱 / 해외카드 결제 가능", ja:"外国人向けタクシーアプリ・海外カード対応" },
     icon: "/images/apps/k-ride.png",
     appStoreUrl: "#",
     googlePlayUrl: "#",
   },
   {
     name: "KakaoTalk",
-    description: { en:"Messaging app used in Korea", zh:"韩国常用聊天应用", ko:"한국에서 많이 쓰는 메신저 앱" },
+    description: { en:"Messaging app used in Korea", zh:"韩国常用聊天应用", ko:"한국에서 많이 쓰는 메신저 앱", ja:"韓国で広く使われるメッセージアプリ" },
     icon: "/images/apps/kakaotalk.png",
     appStoreUrl: "#",
     googlePlayUrl: "#",
   },
   {
     name: "Subway Korea",
-    description: { en:"Subway route and transfer guide", zh:"地铁路线和换乘查询应用", ko:"지하철 노선 / 환승 안내 앱" },
+    description: { en:"Subway route and transfer guide", zh:"地铁路线和换乘查询应用", ko:"지하철 노선 / 환승 안내 앱", ja:"地下鉄路線・乗り換え案内アプリ" },
     icon: "/images/apps/subway-korea.png",
     appStoreUrl: "#",
     googlePlayUrl: "#",
@@ -233,6 +233,59 @@ const C = {
     pwa:{ title:"KSIM Support를 홈 화면에 추가하세요.", desc:"유심 설정, 문제 해결, 공항 도착 가이드, 고객센터 연결을 빠르게 확인할 수 있습니다.", button:"홈 화면에 추가", dismiss:"나중에" },
     footer:{ company:"회사", email:"이메일", hours:"운영시간" },
   },
+  ja: {
+    langLabel:"日本語",
+    hero:{ sub:"SIMカードでお困りですか？", desc:"言語を選択して、設定ガイドに従ってください。" },
+    menu:{ start:"スタートガイド", iphone:"iPhone設定", android:"Android設定", notWorking:"SIMカード不具合", contact:"サポートに連絡", channel:"空港到着ガイド" },
+    startGuide:{ title:"スタートガイド", steps:["SIMカードをスマートフォンに挿入してください。","スマートフォンを再起動してください。","モバイルデータをオンにしてください。","データローミングをオンにしてください。","ネットワーク選択を自動に設定してください。","1〜3分待ってネットワークに接続してください。"] },
+    iphone:{ title:"iPhone設定", steps:["設定 > モバイル通信に移動してください。","モバイルデータ通信をオンにしてください。","通信のオプションに移動してください。","データローミングをオンにしてください。","ネットワーク選択に移動してください。","自動をオンにしてください。","iPhoneを再起動してください。"] },
+    android:{ title:"Android設定", steps:["設定 > 接続に移動してください。","モバイルネットワークをタップしてください。","モバイルデータをオンにしてください。","データローミングをオンにしてください。","ネットワークモードを自動に設定してください。","ネットワーク事業者を自動選択に設定してください。","スマートフォンを再起動してください。"] },
+    notWorking:{
+      title:"SIMカード不具合",
+      issues:{
+        notDetected:{ label:"SIMカードが認識されない", steps:["SIMカードが正しく挿入されているか確認してください。","別のSIMスロットがあれば試してください。","スマートフォンを再起動してください。","可能であれば別のスマートフォンでSIMカードをテストしてください。","それでも解決しない場合は、サポートにお問い合わせください。"] },
+        noSignal:{ label:"電波がない", steps:["機内モードをオン・オフしてください。","ネットワーク選択を自動に設定してください。","スマートフォンを再起動してください。","別の場所に移動して再度試してください。","それでも電波がない場合は、サポートにお問い合わせください。"] },
+        dataNotWorking:{ label:"データ通信ができない", steps:["モバイルデータをオンにしてください。","データローミングをオンにしてください。","必要に応じてAPN設定を確認してください。","スマートフォンを再起動してください。","それでもデータ通信ができない場合は、サポートにお問い合わせください。"] },
+        esim:{ label:"eSIMが開通できない", steps:["スマートフォンがeSIMに対応しているか確認してください。","ダイヤル画面で*#06#を入力し、EIDが表示されるか確認してください。","Wi-Fiに接続してください。","QRコードを再度スキャンしてください。","インストール後にスマートフォンを再起動してください。","開通に失敗した場合は、サポートにお問い合わせください。"] },
+        refund:{ label:"返金 / 交換", steps:["SIMカードパッケージの写真をサポートに送ってください。","購入場所と購入日をお知らせください。","対応していない端末またはSIMロック端末が原因の場合、返金・交換が制限される場合があります。","使用済みのSIM商品は返金が制限される場合があります。"] },
+      }
+    },
+    contact:{
+      title:"サポートに連絡",
+      prepare:"お問い合わせ前に、スマートフォンの機種、SIM番号、購入場所、スクリーンショットをご準備ください。",
+      channels:{ whatsapp:"WhatsApp" },
+      form:{ title:"サポートリクエストを送信", name:"お名前", phoneModel:"スマートフォンの機種", simNumber:"SIM番号 / ICCID", purchaseLoc:"購入場所", issueType:"問題の種類", issueOptions:["SIMカードが認識されない","電波がない","データ通信ができない","eSIMが開通できない","返金 / 交換","その他"], screenshot:"スクリーンショットをアップロード", message:"メッセージ", submit:"サポートリクエストを送信", success:"ありがとうございます。サポートチームよりご連絡いたします。" },
+    },
+    channel:{
+      title:"空港到着ガイド",
+      intro:"韓国到着後すぐに必要な情報をご確認ください。",
+      channelCtaTitle:"KSIMチャンネルをフォロー",
+      channelCtaDesc:"チャンネルをフォローして、SIM設定サポート、空港到着情報、特別オファーをお受け取りください。",
+      buttons:{ whatsapp:"WhatsAppチャンネルをフォロー", wechat:"WeChatを追加", kakao:"KakaoTalkチャンネルを追加" },
+      disclaimer:"チャンネルをフォローすると、KSIMからの通知やプロモーション情報を受け取る場合があります。いつでもフォローを解除できます。",
+      arrival:{ title:"空港到着ガイド", cards:[
+        { icon:"📶", title:"まずSIMカードを設定", body:"空港でKSIMを購入後、SIMカードを挿入してスマートフォンを再起動してください。\nモバイルデータとデータローミングをオンにしてください。\nネットワーク選択を自動に設定して1〜3分お待ちください。" },
+        { icon:"📡", title:"空港Wi-Fi", body:"SIMカードがまだ接続できない場合は、まず空港Wi-Fiをご利用ください。\nその後、KSIM Supportで設定ガイドを確認するか、サポートにお問い合わせください。" },
+        { icon:"✅", title:"空港を出る前の確認事項", list:["SIM接続を確認","必要に応じて空港Wi-Fiに接続","必須アプリをダウンロード","Tマネーを購入またはチャージ","宿泊先の住所を保存","KSIMサポートの連絡先を保存"] },
+        { icon:"🚇", title:"交通 / Tマネー", body:"空港からは空港鉄道、空港バス、地下鉄、タクシーをご利用いただけます。",
+          tmoney:{
+            t1:{ label:"第1ターミナル (T1)", items:["1階到着ロビー Exit 5、Exit 11、Exit 13 近くのCUコンビニ","B1交通センター / AREX入口近く"] },
+            t2:{ label:"第2ターミナル (T2)", items:["1階 Arrival Hall A 近くのGS25","1階 Exit 10 近くのCU","B1交通センター中央のCU"] },
+            topup:{ label:"チャージ場所", items:["コンビニ","地下鉄駅のチャージ機","AREX近く"] },
+            use:{ label:"使用できる場所", items:["地下鉄","バス","コンビニ","一部のタクシー"] },
+          },
+          tip:"店舗によって在庫が異なる場合があります。一店舗にTマネーカードがなければ、他のコンビニやAREX周辺をご確認ください。" },
+        { icon:"🚕", title:"タクシーアプリ / 支払い", body:"", taxiApps:[{ name:"Kakao T", desc:"韓国で最も広く使われているタクシーアプリです。\n海外の電話番号でKakao Tをご利用いただける場合があります。\n韓国のカードをお持ちでない場合は、運転手への直接支払いを選択してください。\n通常、現金、クレジットカード、またはTマネーでお支払いいただけます。" },{ name:"k.ride", desc:"Kakao Mobilityの外国人向けタクシーアプリです。\nGoogle/Appleログインと海外カード決済に対応しています。\n海外カードでアプリ内決済をご希望の旅行者に便利です。" },{ name:"Uber", desc:"韓国でもUberアプリで現地タクシーを呼ぶことができます。\nすでにUberアカウントをお持ちの方に便利です。\nただし韓国ではKakao TまたはK.rideを多く推奨しています。" }], tip:"空港Wi-Fiに接続した状態でタクシーアプリをダウンロードしてください。" },
+        { icon:"📱", title:"必須アプリ", body:"", useMustHaveApps:true, tip:"空港Wi-Fiに接続した状態でアプリをダウンロードしてください。" },
+        { icon:"💳", title:"お支払いのヒント", body:"韓国のほとんどの店舗でクレジット/デビットカードが使用できます。\nただし一部の小規模店舗、市場、交通系チャージ機では現金が必要な場合があります。\n少額の韓国ウォン現金をご準備ください。" },
+        { icon:"🔌", title:"電源プラグガイド", body:"韓国ではCタイプ / Fタイプのプラグが使用されます。\n電圧は220Vです。\nプラグの形状が異なる場合は、空港のショップやコンビニでアダプターをご購入ください。" },
+        { icon:"💡", title:"データ節約のヒント", body:"モバイルデータを節約するには：", list:["動画視聴にはWi-Fiを使用","動画の自動再生をオフ","YouTubeの動画品質を下げる","地図を事前にダウンロード","使用していないアプリのバックグラウンドデータをオフ"] },
+        { icon:"🚨", title:"緊急連絡先", emergency:[{ label:"警察", number:"112" },{ label:"消防 / 救急", number:"119" },{ label:"観光案内", number:"1330" },{ label:"KSIMサポート", number:"このページからお問い合わせ" }] },
+      ]},
+    },
+    pwa:{ title:"KSIM Supportをホーム画面に追加してください。", desc:"SIM設定、トラブルシューティング、空港到着ガイド、サポート連絡に素早くアクセスできます。", button:"ホーム画面に追加", dismiss:"後で" },
+    footer:{ company:"会社", email:"メール", hours:"サポート時間" },
+  },
 };
 
 const SvgSim = ({cls}: {cls: string}) => <svg className={cls} fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 2v4h6V2"/><rect x="8" y="10" width="3" height="3" rx="0.5"/><rect x="13" y="10" width="3" height="3" rx="0.5"/><rect x="8" y="15" width="3" height="3" rx="0.5"/><rect x="13" y="15" width="3" height="3" rx="0.5"/></svg>;
@@ -336,7 +389,7 @@ export default function KSIMSupport() {
             <p className="text-blue-100 text-xl font-semibold mb-1">Having trouble with your SIM?</p>
             <p className="text-blue-200 text-base mb-10">Please choose your language and follow the setup guide.</p>
             <div className="space-y-3">
-              {["en","zh","ko"].map(function(code) {
+              {["en","zh","ko","ja"].map(function(code) {
                 return (
                   <button key={code} onClick={function() { setLang(code); setSection(SEC.HOME); }} className="w-full py-5 rounded-2xl bg-white text-blue-700 font-bold text-xl shadow-md hover:bg-blue-50 active:scale-95 transition-all">
                     {C[code].langLabel}
@@ -376,7 +429,7 @@ export default function KSIMSupport() {
                   <SvgSim cls="w-6 h-6"/><span>KSIM Support</span>
                 </button>
                 <div className="flex gap-1">
-                  {["en","zh","ko"].map(function(code) {
+                  {["en","zh","ko","ja"].map(function(code) {
                     return (
                       <button key={code} onClick={function() { setLang(code); }} className={"px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors " + (lang===code ? "bg-white text-blue-600" : "text-blue-200 hover:text-white")}>
                         {C[code].langLabel}
